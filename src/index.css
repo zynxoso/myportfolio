@@ -1,0 +1,217 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-violet-50;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Enhanced glass card effect */
+.glass-card {
+  @apply bg-dark-light/40 backdrop-blur-lg border border-violet-600/10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.1);
+}
+
+/* Enhanced glow effect */
+.glow-effect {
+  @apply relative;
+  transition: transform 0.3s ease;
+}
+
+.glow-effect::before {
+  content: '';
+  @apply absolute inset-0 bg-violet-600/10 blur-xl opacity-0 -z-10;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover {
+  transform: translateY(-2px);
+}
+
+.glow-effect:hover::before {
+  @apply opacity-75;
+}
+
+/* Enhanced navigation links */
+.nav-link {
+  @apply relative text-violet-300 transition-colors duration-300;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-0.5 bg-violet-400;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  @apply text-violet-100;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* Enhanced gradient border */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(to right, #4c1d95, #7c3aed);
+  padding: 1px;
+  border-radius: theme('borderRadius.lg');
+  transition: transform 0.3s ease;
+}
+
+.gradient-border::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-violet-600/50 to-purple-600/50 opacity-0 transition-opacity duration-300 rounded-lg;
+}
+
+.gradient-border:hover {
+  transform: translateY(-2px);
+}
+
+.gradient-border:hover::before {
+  @apply opacity-100;
+}
+
+/* Background mesh with animation */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(109, 40, 217, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  animation: meshMove 20s ease infinite alternate;
+}
+
+@keyframes meshMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Animated gradient text */
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Button hover effects */
+.button-hover {
+  transition: all 0.3s ease;
+}
+
+.button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+}
+
+/* Form input animations */
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: theme('colors.violet.500');
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+/* Skill card animations */
+.skill-card {
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Icon animations */
+.icon-spin {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Project card hover effects */
+.project-card {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-image {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Social link animations */
+.social-link {
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px) scale(1.1);
+  color: theme('colors.violet.300');
+}
